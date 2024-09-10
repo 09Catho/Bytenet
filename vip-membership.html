@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Membership - Polygon Payment (Replit Version)</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        button { padding: 10px 20px; font-size: 16px; margin-bottom: 10px; }
+        #transactionDetails, #qrCode, #thankYouMessage { margin-top: 20px; }
+        #walletAddress { width: 300px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>VIP Membership - Polygon Payment (Replit Version)</h1>
+    <input type="text" id="walletAddress" placeholder="Enter your Polygon wallet address">
+    <br>
+    <button id="connectButton">Connect to Web3</button>
+    <button id="payButton" disabled>Pay for VIP Membership</button>
+    
+    <div id="transactionDetails" style="display:none;">
+        <h2>Transaction Details</h2>
+        <p>Transaction ID: <span id="transactionId"></span></p>
+        <p>Amount Received: <span id="amountReceived"></span></p>
+    </div>
+    
+    <div id="qrCode" style="display:none;"></div>
+    
+    <p id="thankYouMessage" style="display:none;"></p>
+
+    <script>
+        let web3;
+        const receiverAddress = '0xYourPolygonWalletAddress'; // Replace with your address
+        const vipPrice = '10000000000000000000'; // 10 MATIC in wei
+
+        async function connectToWeb3() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    web3 = new Web3(window.ethereum);
+                    document.getElementById('connectButton').textContent = 'Connected';
+                    document.getElementById('payButton').disabled = false;
+                } catch (error) {
+                    console.error('Failed to connect to Web3:', error);
+                    alert('Failed to connect to Web3. Please make sure MetaMask is installed and unlocked.');
+                }
+            } else {
+                web3 = new Web3('https://rpc-mainnet.maticvigil.com');
+                document.getElementById('connectButton').textContent = 'Using Public RPC';
+                document.getElementById('payButton').disabled = false;
+            }
+        }
+
+        async function handlePayment() {
+            const senderAddress = document.getElementById('walletAddress').value;
+            if (!web3.utils.isAddress(senderAddress)) {
+                alert('Please enter a valid Polygon wallet address.');
+                return;
+            }
+
+            try {
+                const transaction = {
+                    from: senderAddress,
+                    to: receiverAddress,
+                    value: vipPrice
+                };
+
+                // For demonstration purposes, we're not sending a real transaction
+                // Instead, we'll simulate a successful transaction
+                const fakeReceipt = {
+                    transactionHash: '0x' + Array(64).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join(''),
+                    value: vipPrice
+                };
+
+                // Display transaction details
+                document.getElementById('transactionId').textContent = fakeReceipt.transactionHash;
+                document.getElementById('amountReceived').textContent = web3.utils.fromWei(fakeReceipt.value, 'ether') + ' MATIC';
+                document.getElementById('transactionDetails').style.display = 'block';
+
+                // Generate QR code
+                const qrCode = generateQRCode(fakeReceipt.transactionHash);
+                document.getElementById('qrCode').innerHTML = qrCode;
+                document.getElementById('qrCode').style.display = 'block';
+
+                // Display thank you message
+                document.getElementById('thankYouMessage').textContent = 'Thank you for becoming a VIP member!';
+                document.getElementById('thankYouMessage').style.display = 'block';
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Transaction failed. Please try again.');
+            }
+        }
+
+        function generateQRCode(data) {
+            return '<img src="https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(data) + '&size=200x200" alt="QR Code">';
+        }
+
+        document.getElementById('connectButton').addEventListener('click', connectToWeb3);
+        document.getElementById('payButton').addEventListener('click', handlePayment);
+    </script>
+</body>
+</html>

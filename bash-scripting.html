@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytenet Academy</title>
+    <!-- External Libraries for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif; /* Sci-fi font */
+            background-color: #0A0E18;
+            color: #FFFFFF;
+            background-image: url('backgroundimagecourse.jpg'); /* Space background */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Sci-fi Glow Animation for Buttons */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+            }
+            100% {
+                box-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff, 0 0 120px #00ffff;
+            }
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: transparent;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav h1 {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #00ffff;
+            font-size: 18px;
+            position: relative;
+            padding: 10px;
+        }
+
+        nav ul li a:hover {
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        /* Sidebar */
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+            padding-top: 100px;
+        }
+
+        /* Sidebar (Courses List) */
+        .sidebar {
+            width: 250px;
+            background-color: rgba(28, 32, 43, 0.8);
+            padding: 20px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .course {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(43, 47, 60, 0.9);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #ffffff;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .course:hover {
+            background-color: #00ffff;
+            color: #000000;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            background-color: rgba(10, 14, 24, 0.9);
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .main-content h2 {
+            font-size: 22px;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .featured-video {
+            width: 100%;
+            height: 400px;
+            background-color: rgba(43, 47, 60, 0.8);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <h1>BYTENET</h1>
+    <ul>
+        <li><a href="index.html" class="hvr-glow">Home</a></li>
+        <li><a href="course.html" class="hvr-glow">Courses</a></li>
+        <li><a href="https://flowgpt.com/p/0c2a9c86-231f-4eae-a29c-a72af41be9ac" class="hvr-glow">Playground</a></li>
+        <li><a href="Visualization.html" class="hvr-glow">Visualization</a></li>
+        <li><a href="info.html" class="hvr-glow">About Us</a></li>
+        <li><a href="https://flowgpt.com/p/da435e4b-9c25-4fc2-bc79-34ea98b018f6" class="hvr-glow">Mental Well-being</a></li>
+    </ul>
+</nav>
+
+<!-- Main Layout -->
+<div class="container">
+    <!-- Sidebar -->
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Courses</h2>
+    <a href="frontend-development.html" class="hvr-bounce-in">
+        <div class="course">Frontend Development</div>
+    </a>
+    <a href="ruby.html" class="hvr-bounce-in">
+        <div class="course">Ruby</div>
+    </a>
+    <a href="computer-networking.html" class="hvr-bounce-in">
+        <div class="course">Computer Networking</div>
+    </a>
+    <a href="python.html" class="hvr-bounce-in">
+        <div class="course">Python</div>
+    </a>
+    <a href="javascript.html" class="hvr-bounce-in">
+    <div class="course">JavaScript</div>
+    </a>
+    <a href="c.html" class="hvr-bounce-in">
+        <div class="course">C</div>
+    </a>
+    <a href="c++.html" class="hvr-bounce-in">
+        <div class="course">C++</div>
+    </a>
+    <a href="react.html" class="hvr-bounce-in">
+        <div class="course">React</div>
+    </a>
+    <a href="node.html" class="hvr-bounce-in">
+        <div class="course">Node</div>
+    </a>
+    <a href="golang.html" class="hvr-bounce-in">
+        <div class="course">Golang</div>
+    </a>
+    <a href="cybersecurity-ethical-hacking.html" class="hvr-bounce-in">
+        <div class="course">Cybersecurity (Ethical Hacking)</div>
+    </a>
+    <a href="bash-scripting.html" class="hvr-bounce-in">
+        <div class="course">Bash Scripting</div>
+    </a>
+    <a href="blockchain-technology.html" class="hvr-bounce-in">
+        <div class="course">Blockchain Technology</div>
+    </a>
+    <a href="operating-systems.html" class="hvr-bounce-in">
+        <div class="course">Operating Systems</div>
+    </a>
+    <a href="advanced-computer-vision.html" class="hvr-bounce-in">
+        <div class="course">Advanced Computer Vision</div>
+    </a>
+   
+    
+    <a href="quantum_computing.html" class="hvr-bounce-in">
+        <div class="course">Introduction to Quantum Computing</div>
+        <a href="rust.html" class="hvr-bounce-in">
+            <div class="course">Rust</div>
+            <a href="system-designing.html" class="hvr-bounce-in">
+                <div class="course">System Designing</div>
+            </a>
+            
+            
+   <a href="artificial_intelligence.html" class="hvr-bounce-in">
+        <div class="course">Exploring Artificial Intelligence</div>
+    </a>
+    <a href="data_visualization.html" class="hvr-bounce-in">
+        <div class="course">Advanced Data Visualization</div>
+    </a>
+    <a href="mindfulness.html" class="hvr-bounce-in">
+        <div class="course">Mindfulness and Meditation</div>
+    </a>
+</div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>Featured Video</h2>
+        <div class="featured-video animate__animated animate__pulse animate__infinite">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLT98CRl2KxKGj-VKtApD8-zCqSaN2mD4w" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
