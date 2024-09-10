@@ -1,7 +1,7 @@
 # Byte Net - A Comprehensive EdTech Platform
 
 ## Introduction
-
+HERE IS THE LINK TO ACCESS: https://byte0net.netlify.app
 **Byte Net** is a cutting-edge platform designed to revolutionize the learning experience for students by providing free access to world-class programming courses alongside unique AI-driven assistance and mental health support. Byte Net integrates multiple modern technologies such as **Blockchain**, **AI**, and **Augmented Reality** to create an interactive, stress-relieving, and enriching learning environment.
 
 ### Features
